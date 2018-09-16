@@ -1,7 +1,7 @@
 //function for strings
 
 var array = [];
-var obj = {};
+
 var fromStorage = localStorage.getItem('array');
 if (fromStorage !== null) {
     array = JSON.parse(fromStorage);
@@ -9,12 +9,14 @@ if (fromStorage !== null) {
 render();
 
 function add() {
+    var obj = {};
     obj.price = parseInt(document.querySelector('#product').value);
     array.push(obj);
     render();
 
-    document.querySelector('#product').value = "";
+
     localStorage.setItem('array', JSON.stringify(array));
+    document.querySelector('#product').value = "";
 }
 
 
